@@ -1,0 +1,21 @@
+# cybertissue-notes(GitHub Pages) 사이트 설정. 원본은 cybertissue 저장소 pub/site/에 있고 게시 실행이 처음 한 번 복사한다.
+title: CyberTissue Notes
+description: "공개 정보만으로 조사한 사이버 위협 이슈 분석 노트"
+author: CyberTissue
+url: https://jsik22.github.io
+baseurl: /cybertissue-notes
+lang: ko
+timezone: Asia/Seoul
+theme: minima
+permalink: /:year/:month/:day/:title/
+show_excerpts: true
+minima:
+  date_format: "%Y-%m-%d"
+webmaster_verifications:
+  google: "-5AIZPY8CJv-5iMSmR6p6vXyf0C6m6SkRGtXgqRpl2o"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - README.md

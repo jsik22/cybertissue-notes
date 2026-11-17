@@ -10,6 +10,4 @@ CyberTissue Notes는 [CyberTissue](https://github.com/jsik22/cybertissue)가 공
 
 조사는 자동으로 돌고, 글은 사람이 검토한 뒤에 올립니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 개인정보와 유출물 내용은 다루지 않습니다. 조사 방법과 도구는 [저장소](https://github.com/jsik22/cybertissue)에 공개돼 있습니다.
 
-이 사이트는 방문 통계에 [GoatCounter](https://www.goatcounter.com)를 씁니다. 쿠키를 쓰지 않고 IP 주소를 저장하지 않으며, 페이지별 방문 수와 유입 경로, 국가, 브라우저 정도만 집계합니다.
-
 글의 라이선스는 [LICENSE](LICENSE.md)를 보세요.

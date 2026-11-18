@@ -9,3 +9,9 @@ table th:first-child,
 table td:first-child {
   white-space: nowrap;
 }
+
+// 나머지 열은 긴 토큰(벡터 문자열·버전 나열 등)도 줄바꿈해 좁은 화면에서 표가 넘치지 않게 한다.
+table th:not(:first-child),
+table td:not(:first-child) {
+  overflow-wrap: anywhere;
+}

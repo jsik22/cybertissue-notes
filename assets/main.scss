@@ -1,0 +1,11 @@
+---
+# minima 2.5.1 기본 스타일에 CyberTissue 노트용 규칙만 더한다
+---
+
+@import "minima";
+
+// 표 첫 열(항목 이름)은 줄바꿈하지 않는다(사용자 선호, 2026-11-18). 긴 이름은 글에서 짧게 쓴다.
+table th:first-child,
+table td:first-child {
+  white-space: nowrap;
+}

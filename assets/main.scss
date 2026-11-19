@@ -10,7 +10,7 @@ $base-font-size: 15px;
 
 // 제목 크기를 줄인다(사용자 요청, 2026-11-19). 글 제목은 두 줄로 넘어가도 읽히게 줄 간격을 준다.
 .post-title {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.3;
   letter-spacing: -0.5px;
 }
@@ -28,8 +28,17 @@ $base-font-size: 15px;
   font-size: 16px;
 }
 
+// 첫 화면 글 목록의 제목 링크와 "Posts" 머리도 같은 비율로 줄인다.
+.post-link {
+  font-size: 19px;
+}
+.post-list-heading {
+  font-size: 20px;
+}
+
 @media screen and (max-width: 800px) {
-  .post-title { font-size: 24px; }
+  .post-title { font-size: 21px; }
+  .post-link { font-size: 17px; }
   .post-content h2 { font-size: 20px; }
   .post-content h3 { font-size: 17px; }
 }

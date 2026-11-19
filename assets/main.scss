@@ -2,7 +2,19 @@
 # minima 2.5.1 기본 스타일에 CyberTissue 노트용 규칙만 더한다
 ---
 
+// 본문 폭을 넓히고(기본 800px) 글자를 조금 줄인다(기본 16px). 사용자 요청, 2026-11-19.
+$content-width: 960px;
+$base-font-size: 15px;
+
 @import "minima";
+
+// 큰 절(h2, 예: 무슨 일인가·공개된 근거) 사이를 더 띄운다. 하위 절(h3)도 조금 띄운다.
+.post-content h2 {
+  margin-top: 2.6em;
+}
+.post-content h3 {
+  margin-top: 1.8em;
+}
 
 // 표 첫 열(항목 이름)은 줄바꿈하지 않는다(사용자 선호, 2026-11-18). 긴 이름은 글에서 짧게 쓴다.
 table th:first-child,

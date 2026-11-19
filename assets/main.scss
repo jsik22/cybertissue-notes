@@ -8,12 +8,30 @@ $base-font-size: 15px;
 
 @import "minima";
 
+// 제목 크기를 줄인다(사용자 요청, 2026-11-19). 글 제목은 두 줄로 넘어가도 읽히게 줄 간격을 준다.
+.post-title {
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
 // 큰 절(h2, 예: 무슨 일인가·공개된 근거) 사이를 더 띄운다. 하위 절(h3)도 조금 띄운다.
 .post-content h2 {
+  font-size: 22px;
   margin-top: 2.6em;
 }
 .post-content h3 {
+  font-size: 18px;
   margin-top: 1.8em;
+}
+.post-content h4 {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  .post-title { font-size: 24px; }
+  .post-content h2 { font-size: 20px; }
+  .post-content h3 { font-size: 17px; }
 }
 
 // 표 첫 열(항목 이름)은 줄바꿈하지 않는다(사용자 선호, 2026-11-18). 긴 이름은 글에서 짧게 쓴다.

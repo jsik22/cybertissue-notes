@@ -16,6 +16,7 @@ sources:
   - {name: "데일리시큐, 대학 포털 해킹으로 교직원 개인정보 5,885건 유출 (2026-11-16)", url: "https://www.dailysecu.com/news/articleView.html?idxno=209544"}
   - {name: "Team D4rkn3ttz, KimJEN이 겨냥한 한국 대학 31개 시스템 (X, 2026-11-15)", url: "https://x.com/Team_D4rkn3ttz/status/2121900135911428313"}
 excerpt: "국내 대학 28곳 데이터를 공개했다고 주장한 KimJEN·'No KR No FUN'을 공개 정보로 봤다. 명단의 절반 이상이 같은 연구행정 시스템을 쓴다. 11-17 오후 유통 경로와 수능 관련 예고를 더했다."
+updated: 2026-11-19 10:11:22 +0900
 ---
 
 > 최근 업데이트(11월 19일): 노트 양식을 정리했다(내용 변화 없음). 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.

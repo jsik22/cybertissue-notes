@@ -12,6 +12,7 @@ sources:
   - {name: "Cyber Security News, Hackers Use New Infostealer Malware to Steal ChatGPT, Claude, and Codex Tokens (2026-11-04)", url: "https://cybersecuritynews.com/hackers-use-new-infostealer-malware/"}
   - {name: "Gen Threat Labs IOC 저장소 (WardenStealer)", url: "https://github.com/gendigitalinc/ioc/tree/master/WardenStealer"}
 excerpt: "Warden Stealer는 v1.9부터 AI 코딩 에이전트의 OAuth·API 토큰을 표준 수집한다. 공개 IOC를 abuse.ch 피드와 대조했더니 겹침이 작았고, C2 일부는 11월 중순까지 관측됐다."
+updated: 2026-11-19 10:11:25 +0900
 ---
 
 > 최근 업데이트(11월 19일): 노트 양식을 정리했다(내용 변화 없음). 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.

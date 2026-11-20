@@ -11,6 +11,7 @@ sources:
   - {name: "MITRE ATT&CK S1165 FrostyGoop", url: "https://attack.mitre.org/software/S1165/"}
   - {name: "MITRE ATT&CK C0041 FrostyGoop Incident", url: "https://attack.mitre.org/campaigns/C0041/"}
 excerpt: "2024년 우크라이나 지역난방 중단에 쓰인 FrostyGoop(BUSTLEBERM)을 공개 보고서와 CyberTissue 조회 결과로 정리하고, OT 운영 조직이 점검할 항목을 뽑았다."
+updated: 2026-11-19 10:11:08 +0900
 ---
 
 > 최근 업데이트(11월 19일): 노트 양식을 정리했다(내용 변화 없음). 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.

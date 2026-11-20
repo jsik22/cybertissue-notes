@@ -9,6 +9,7 @@ sources:
   - {name: "ransomware.live, Victim: PANAX Group", url: "https://www.ransomware.live/id/UEFOQVggR3JvdXBAaW5jcmFuc29t"}
   - {name: "MITRE ATT&CK G1032 INC Ransom", url: "https://attack.mitre.org/groups/G1032/"}
 excerpt: "인크랜섬이 신형 유출 사이트에 올린 파낙스 그룹·욱성화학 게시글을 11월 10·14·16일 세 번 추적했다. 실제 데이터는 아직 올라오지 않았고, 원전·산업 설비 공급망 관점의 점검 항목을 정리했다."
+updated: 2026-11-19 11:29:56 +0900
 ---
 
 > 최근 업데이트(11월 19일): 노트 양식을 정리했다(내용 변화 없음). 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.

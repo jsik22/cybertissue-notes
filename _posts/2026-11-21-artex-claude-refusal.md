@@ -3,18 +3,21 @@ layout: post
 title: "ARTEX — FBI가 경고한 AI 자율 침투 도구, Claude는 거절하고 DeepSeek로 돈다"
 date: 2026-11-21
 tags: [artex, agentic-ai, llm-guardrails, deepseek, fbi-flash]
-description: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 공개 보고와 점검 항목을 정리했다."
+description: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 이후 실험실 실측으로 검증한 탐지 룰과 정제한 IOC를 anti-artex 저장소로 공개했다."
 sources:
   - {name: "FBI FLASH-20261113-001, Threat Overview of ARTEX Autonomous Penetration Testing Framework (2026-11-13, TLP:CLEAR)", url: "https://www.ic3.gov/CSA/2026/261113.pdf"}
   - {name: "Check Point Research, Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns (2026-11-05)", url: "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/"}
   - {name: "GitGuardian, An ARTEX build ships no secret scanner. In our lab it found the secrets anyway (2026-11-10)", url: "https://blog.gitguardian.com/an-artex-build-ships-no-secret-scanner-in-our-lab-it-found-the-secrets-anyway/"}
   - {name: "CrowdStrike, Unknown Threat Actor Uses ARTEX to Target South Korean Finance (2026-10-07)", url: "https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/"}
   - {name: "CrowdStrike, VAPOR PANDA Uses AI-Driven ARTEX to Scale a Global Espionage Campaign (2026-10-29)", url: "https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/"}
-excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 공개 보고와 점검 항목을 정리했다."
-updated: 2026-11-21 15:32:59 +0900
+  - {name: "Hunt.io, ARTEX Exposed: Infrastructure Behind the South Korea Bank Hack (2026-11-04)", url: "https://hunt.io/blog/artex-south-korea-bank-infrastructure"}
+  - {name: "MalwareMustDie, MMD-072-2026 ARTEX Detection Signature (2026-11-13)", url: "https://blog.malwaremustdie.org/2026/11/mmd-072-2026-artex-detection-signature.html"}
+  - {name: "Theori, aipt-detections (2026-10-12)", url: "https://github.com/theori-io/aipt-detections"}
+excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 이후 실험실 실측으로 검증한 탐지 룰과 정제한 IOC를 anti-artex 저장소로 공개했다."
+updated: 2026-11-22 06:05:10 +0900
 ---
 
-> 최근 업데이트(11월 21일 15시): 첫 게시. 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.
+> 최근 업데이트(11월 22일 06시): ARTEX 탐지 자료 저장소 [anti-artex](https://github.com/jsik22/anti-artex)를 공개했다. 실험실 실측으로 검증한 탐지 룰과, 공개 보고의 IOC를 다시 확인해 권고 조치를 붙인 목록을 담았다. 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.
 
 **목차**
 * 목차
@@ -22,14 +25,15 @@ updated: 2026-11-21 15:32:59 +0900
 
 ## 현재 상태
 
-| 항목 | 상태 (11월 21일 15시 기준) |
+| 항목 | 상태 (11월 22일 06시 기준) |
 |---|---|
 | 도구 | ARTEX. LLM이 계획·실행을 맡는 자율 침투 도구. 원본 저장소는 10월 8일 비공개 전환, 포크·재배포판은 계속 돈다 |
 | 경고 | FBI FLASH(11월 13일). 8월부터 여러 행위자가 악용, 금융·정부·국방·에너지 등 표적 |
 | 노출 콘솔 | 11월 초 1,600개 이상(FBI·Check Point) |
 | 쓰이는 모델 | 중국 모델 위주, DeepSeek Flash 계열이 가장 많음(FBI·Check Point) |
 | Claude 모델 | 거절 사례가 공개 보고 2건과 우리 실험실에서 모두 확인됨 |
-| 국내 | 10월 국내 금융권 침입에 쓰였다는 CrowdStrike 보고 |
+| 국내 | 10월 국내 금융권 침입에 쓰였다는 CrowdStrike 보고, 같은 인프라를 넓혀 본 Hunt.io 보고 |
+| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(룰 v0.3.0, IOC 94개) |
 
 ## 무슨 일인가
 
@@ -74,6 +78,26 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 
 거절을 피하려고 지시문을 고치는 시험은 하지 않았다. 모델이 거절하면 멈추고 기록한다는 원칙을 따랐고, GitGuardian도 같은 원칙을 밝혔다.
 
+## 탐지 자료: anti-artex
+
+CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/anti-artex) 저장소로 공개했다. 여러 보고와 저장소에 흩어진 IOC와 탐지 룰을 직접 확인하고 실측해 한곳에 쌓는 것이 목표다.
+
+| 항목 | 내용 |
+|---|---|
+| 탐지 룰 | Snort 3·Suricata 룰 v0.3.0, 엔진별 14개. ARTEX 도구 UA, 포크 UA, 백도어 콘솔 로그인, 사냥용 행동 룰 3개 |
+| IOC | 공개 보고의 지표 94개에 지금 상태와 권고 조치(차단 검토·사냥·차단 금지 등)를 붙인 목록 |
+| 시험 | 합성 pcap 회귀 시험 공격형 26/26, 정상 오탐 0. 실험실 캡처로 공개 룰 묶음과 비교 |
+
+- **가짜 모델 실측**<br>실제 모델 대신, 정해 둔 도구 호출을 돌려주는 가짜 모델로 ARTEX 엔진을 돌렸다. 표적에 가는 요청은 ARTEX 도구가 만든 실제 트래픽이고, 같은 트래픽을 몇 번이든 재현해 룰을 시험할 수 있다. 모델이 어떤 전술을 고르는지는 재현하지 않는다.
+
+- **관찰: 워커의 curl 공격은 ARTEX 전용 룰에 걸리지 않았다**<br>공개 룰 묶음과 anti-artex 모두 ARTEX 도구(WebFetch, api-recon 스크립트)가 만든 요청은 잡았다. 워커가 curl로 보낸 로그인·검색 변형 요청은 ARTEX 전용 룰 어디에도 걸리지 않았다. anti-artex는 이 빈자리에 로그인 연속 시도를 보는 사냥용 룰을 더했다.
+
+- **관찰: UA를 바꾼 포크도 요청 모양은 그대로다**<br>브라우저 UA로 바꾼 포크도 요청을 보내는 Go·Python 클라이언트는 그대로라 헤더 구성이 같다. "브라우저 UA인데 도구 기본 헤더 모양"인 요청을 보는 룰을 만들었다. 공개 묶음에 없는 유형이다.
+
+- **관찰: 공개 IOC의 절반은 최근 관측이 없다**<br>가장 잘 정리된 공개 IOC 목록에서도 IP 절반은 제3자 색인에 최근 관측이 없었다. 지금 ARTEX 콘솔이 열린 지표는 모두 그 목록 밖에 있었다. 지금 열린 콘솔 IP는 다른 사람이 가로챌 수 있어 공개 목록에서 뺐다.
+
+- **추론: 일부 공개 지표는 ARTEX가 아니라 운영자 몫이다**<br>위치 조회(db-ip), 웹훅 반출, DNS 콜백 서비스 호출은 ARTEX 내장 지시문과 코드에 없다(관찰). 이 지표들은 운영자가 붙인 프롬프트·도구에서 나온 것으로 보고, 운영자마다 다를 수 있다.
+
 ## 조직이 점검할 것
 
 1. **서버의 LLM API 호출**<br>웹 서버·DB 서버처럼 LLM을 쓸 이유가 없는 서버에서 `api.deepseek.com`, `open.bigmodel.cn`, `api.x.ai`, `api.anthropic.com` 같은 도메인으로 나가는 연결을 찾는다. 공격자가 침투한 서버에서 에이전트를 돌리는 경우를 잡는다.
@@ -84,13 +108,16 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 
 4. **피해 서버의 외부 조회**<br>FBI는 침투한 서버에서 위치 확인용 `api.db-ip.com` 조회와 `webhook.site`로의 명령 출력 전송을 지표로 들었다. 서버에서 이 두 도메인으로 가는 DNS 질의와 연결을 찾는다.
 
-5. **노출 면 줄이기**<br>FBI 권고대로 외부에 열린 관리 인터페이스(클라우드 관리, 배포·게시 엔드포인트, 백업, 하이퍼바이저)를 신뢰 망으로 옮긴다. ARTEX는 이미 알려진 노출과 약한 설정을 기계 속도로 엮는 도구라, 남아 있는 노출 면이 곧 표적이다.
+5. **공개 탐지 자료 함께 쓰기**<br>MalwareMustDie·Theori 룰 묶음과 anti-artex 룰을 탐지 모드로 함께 넣는다. IOC는 권고 조치 열을 보고 쓴다(정상 서비스·CDN 뒤 주소는 막지 않는다). ARTEX 전용 룰이 울리지 않아도 공격이 없다는 뜻은 아니다. 모델이 ARTEX 도구 대신 curl만 쓰면 일반 웹 공격 탐지의 몫이다.
+
+6. **노출 면 줄이기**<br>FBI 권고대로 외부에 열린 관리 인터페이스(클라우드 관리, 배포·게시 엔드포인트, 백업, 하이퍼바이저)를 신뢰 망으로 옮긴다. ARTEX는 이미 알려진 노출과 약한 설정을 기계 속도로 엮는 도구라, 남아 있는 노출 면이 곧 표적이다.
 
 ## 업데이트 기록
 
 | 시각(KST) | 내용 |
 |---|---|
 | 11월 21일 15시 | 첫 게시 |
+| 11월 22일 06시 | anti-artex 저장소 공개 내용 반영(탐지 룰·IOC·실험실 실측), 출처 3곳 추가 |
 
 ## 출처
 
@@ -99,6 +126,9 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 - GitGuardian, An ARTEX build ships no secret scanner. In our lab it found the secrets anyway (2026-11-10)
 - CrowdStrike, Unknown Threat Actor Uses ARTEX to Target South Korean Finance (2026-10-07)
 - CrowdStrike, VAPOR PANDA Uses AI-Driven ARTEX to Scale a Global Espionage Campaign (2026-10-29)
+- Hunt.io, ARTEX Exposed: Infrastructure Behind the South Korea Bank Hack (2026-11-04)
+- MalwareMustDie, MMD-072-2026 ARTEX Detection Signature (2026-11-13)
+- Theori, aipt-detections (2026-10-12)
 
 ---
 이 글은 CyberTissue가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue

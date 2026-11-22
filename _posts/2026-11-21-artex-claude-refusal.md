@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "ARTEX — FBI가 경고한 AI 자율 침투 도구, Claude는 거절하고 DeepSeek로 돈다"
+title: "ARTEX — FBI가 경고한 AI 자율 침투 도구, 최신 변형 실측과 탐지"
 date: 2026-11-21
 tags: [artex, agentic-ai, llm-guardrails, deepseek, fbi-flash]
-description: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 이후 실험실 실측으로 검증한 탐지 룰과 정제한 IOC를 anti-artex 저장소로 공개했다."
+description: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX의 현황, Claude 모델 거절 실험, 최신 변형 두 계열의 실험실 실측을 정리했다. UA를 무작위로 바꾸는 변형은 공개 UA 룰을 피했고, 요청 헤더 모양을 보는 anti-artex 룰이 잡았다."
 sources:
   - {name: "FBI FLASH-20261113-001, Threat Overview of ARTEX Autonomous Penetration Testing Framework (2026-11-13, TLP:CLEAR)", url: "https://www.ic3.gov/CSA/2026/261113.pdf"}
   - {name: "Check Point Research, Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns (2026-11-05)", url: "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/"}
@@ -13,8 +13,8 @@ sources:
   - {name: "Hunt.io, ARTEX Exposed: Infrastructure Behind the South Korea Bank Hack (2026-11-04)", url: "https://hunt.io/blog/artex-south-korea-bank-infrastructure"}
   - {name: "MalwareMustDie, MMD-072-2026 ARTEX Detection Signature (2026-11-13)", url: "https://blog.malwaremustdie.org/2026/11/mmd-072-2026-artex-detection-signature.html"}
   - {name: "Theori, aipt-detections (2026-10-12)", url: "https://github.com/theori-io/aipt-detections"}
-excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 이후 실험실 실측으로 검증한 탐지 룰과 정제한 IOC를 anti-artex 저장소로 공개했다."
-updated: 2026-11-22 20:37:08 +0900
+excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX의 현황, Claude 모델 거절 실험, 최신 변형 두 계열의 실험실 실측을 정리했다. UA를 무작위로 바꾸는 변형은 공개 UA 룰을 피했고, 요청 헤더 모양을 보는 anti-artex 룰이 잡았다."
+updated: 2026-11-22 21:54:33 +0900
 ---
 
 > 최근 업데이트(11월 22일 20시): 현장에서 쓰이는 최신 ARTEX 변형 두 계열을 실험실에서 실측했다. 도구 UA를 무작위 브라우저 값으로 바꾸는 계열에는 공개 UA 룰이 거의 걸리지 않았고, 요청 헤더 모양을 보는 anti-artex 룰이 도구 요청을 모두 잡았다. 결과는 anti-artex 룰 v0.4.0에 반영했다. 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.

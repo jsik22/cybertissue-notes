@@ -14,7 +14,7 @@ sources:
   - {name: "MalwareMustDie, MMD-072-2026 ARTEX Detection Signature (2026-11-13)", url: "https://blog.malwaremustdie.org/2026/11/mmd-072-2026-artex-detection-signature.html"}
   - {name: "Theori, aipt-detections (2026-10-12)", url: "https://github.com/theori-io/aipt-detections"}
 excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX를 격리 실험실에서 Claude 모델로 돌려 봤다. 모델이 거절해 표적 요청은 0건이었다. 이후 실험실 실측으로 검증한 탐지 룰과 정제한 IOC를 anti-artex 저장소로 공개했다."
-updated: 2026-11-22 06:05:10 +0900
+updated: 2026-11-22 10:12:33 +0900
 ---
 
 > 최근 업데이트(11월 22일 06시): ARTEX 탐지 자료 저장소 [anti-artex](https://github.com/jsik22/anti-artex)를 공개했다. 실험실 실측으로 검증한 탐지 룰과, 공개 보고의 IOC를 다시 확인해 권고 조치를 붙인 목록을 담았다. 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.
@@ -33,7 +33,7 @@ updated: 2026-11-22 06:05:10 +0900
 | 쓰이는 모델 | 중국 모델 위주, DeepSeek Flash 계열이 가장 많음(FBI·Check Point) |
 | Claude 모델 | 거절 사례가 공개 보고 2건과 우리 실험실에서 모두 확인됨 |
 | 국내 | 10월 국내 금융권 침입에 쓰였다는 CrowdStrike 보고, 같은 인프라를 넓혀 본 Hunt.io 보고 |
-| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(룰 v0.3.0, IOC 94개) |
+| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(룰 v0.3.0, IOC 목록) |
 
 ## 무슨 일인가
 
@@ -85,7 +85,7 @@ CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/ant
 | 항목 | 내용 |
 |---|---|
 | 탐지 룰 | Snort 3·Suricata 룰 v0.3.0, 엔진별 14개. ARTEX 도구 UA, 포크 UA, 백도어 콘솔 로그인, 사냥용 행동 룰 3개 |
-| IOC | 공개 보고의 지표 94개에 지금 상태와 권고 조치(차단 검토·사냥·차단 금지 등)를 붙인 목록 |
+| IOC | 공개 보고의 지표(IP·도메인·User-Agent 등)에 지금 상태와 권고 조치(차단 검토·사냥·차단 금지 등)를 붙인 목록 |
 | 시험 | 합성 pcap 회귀 시험 공격형 26/26, 정상 오탐 0. 실험실 캡처로 공개 룰 묶음과 비교 |
 
 - **가짜 모델 실측**<br>실제 모델 대신, 정해 둔 도구 호출을 돌려주는 가짜 모델로 ARTEX 엔진을 돌렸다. 표적에 가는 요청은 ARTEX 도구가 만든 실제 트래픽이고, 같은 트래픽을 몇 번이든 재현해 룰을 시험할 수 있다. 모델이 어떤 전술을 고르는지는 재현하지 않는다.

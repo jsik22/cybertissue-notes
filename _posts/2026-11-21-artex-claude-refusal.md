@@ -14,7 +14,7 @@ sources:
   - {name: "MalwareMustDie, MMD-072-2026 ARTEX Detection Signature (2026-11-13)", url: "https://blog.malwaremustdie.org/2026/11/mmd-072-2026-artex-detection-signature.html"}
   - {name: "Theori, aipt-detections (2026-10-12)", url: "https://github.com/theori-io/aipt-detections"}
 excerpt: "FBI FLASH가 경고한 AI 자율 침투 도구 ARTEX의 현황, Claude 모델 거절 실험, 최신 변형 두 계열의 실험실 실측을 정리했다. UA를 무작위로 바꾸는 변형은 공개 UA 룰을 피했고, 요청 헤더 모양을 보는 anti-artex 룰이 잡았다."
-updated: 2026-11-22 21:54:33 +0900
+updated: 2026-11-22 22:01:38 +0900
 ---
 
 > 최근 업데이트(11월 22일 20시): 현장에서 쓰이는 최신 ARTEX 변형 두 계열을 실험실에서 실측했다. 도구 UA를 무작위 브라우저 값으로 바꾸는 계열에는 공개 UA 룰이 거의 걸리지 않았고, 요청 헤더 모양을 보는 anti-artex 룰이 도구 요청을 모두 잡았다. 결과는 anti-artex 룰 v0.4.0에 반영했다. 지난 기록은 글 끝 [업데이트 기록](#업데이트-기록)에 있다.
@@ -33,7 +33,7 @@ updated: 2026-11-22 21:54:33 +0900
 | 쓰이는 모델 | 중국 모델 위주, DeepSeek Flash 계열이 가장 많음(FBI·Check Point) |
 | Claude 모델 | 거절 사례가 공개 보고 2건과 우리 실험실에서 모두 확인됨 |
 | 국내 | 10월 국내 금융권 침입에 쓰였다는 CrowdStrike 보고, 같은 인프라를 넓혀 본 Hunt.io 보고 |
-| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(룰 v0.4.0, IOC 목록) |
+| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(탐지 룰, IOC 목록) |
 
 ## 무슨 일인가
 
@@ -84,15 +84,15 @@ CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/ant
 
 | 항목 | 내용 |
 |---|---|
-| 탐지 룰 | Snort 3·Suricata 룰 v0.4.0, 엔진별 16개. ARTEX 도구 UA, 포크 UA, 백도어 콘솔 로그인, 요청 헤더 모양, 사냥용 행동 룰 |
+| 탐지 룰 | Snort 3·Suricata 룰. ARTEX 도구 UA, 포크 UA, 백도어 콘솔 로그인, 요청 헤더 모양, 사냥용 행동 룰 |
 | IOC | 공개 보고의 지표(IP·도메인·User-Agent 등)에 지금 상태와 권고 조치(차단 검토·사냥·차단 금지 등)를 붙인 목록 |
-| 시험 | 합성 pcap 회귀 시험 공격형 29/29, 정상 오탐 0. 실험실 캡처(v0.3.15, 최신 변형 두 계열)로 공개 룰 묶음과 비교 |
+| 시험 | 합성 pcap 회귀 시험 통과(정상 오탐 0). 실험실 캡처(v0.3.15, 최신 변형 두 계열)로 공개 룰 묶음과 비교 |
 
 - **가짜 모델 실측**<br>실제 모델 대신, 정해 둔 도구 호출을 돌려주는 가짜 모델로 ARTEX 엔진을 돌렸다. 표적에 가는 요청은 ARTEX 도구가 만든 실제 트래픽이고, 같은 트래픽을 몇 번이든 재현해 룰을 시험할 수 있다. 모델이 어떤 전술을 고르는지는 재현하지 않는다.
 
-- **관찰: 워커의 curl 공격은 ARTEX 전용 룰에 걸리지 않았다**<br>공개 룰 묶음과 anti-artex 모두 ARTEX 도구(WebFetch, api-recon 스크립트)가 만든 요청은 잡았다. 워커가 curl로 보낸 로그인·검색 변형 요청은 ARTEX 전용 룰 어디에도 걸리지 않았다. anti-artex는 이 빈자리에 로그인 연속 시도를 보는 사냥용 룰을 더했다.
+- **관찰: 워커의 curl 공격은 ARTEX 전용 룰에 걸리지 않았다**<br>도구 UA를 그대로 쓰는 버전(v0.3.15·v0.7.0)에서는 공개 룰 묶음과 anti-artex 모두 ARTEX 도구(WebFetch, api-recon 스크립트)가 만든 요청을 잡았다. 워커가 curl로 보낸 로그인·검색 변형 요청은 ARTEX 전용 룰 어디에도 걸리지 않았다. anti-artex는 이 빈자리에 로그인 연속 시도를 보는 사냥용 룰을 더했다.
 
-- **관찰: UA를 무작위로 바꾸는 최신 변형도 요청 모양은 그대로다**<br>원 개발자라고 밝힌 계열의 v0.3.30은 ARTEX 도구의 UA를 표준 브라우저 UA 20개 중 하나로 무작위로 바꾼다. 실험실에서 이 계열을 돌리자 공개 룰 묶음은 Theori 0건, MalwareMustDie 일반 curl 경고뿐이었다. 요청을 보내는 Go·Python 클라이언트의 헤더 모양은 그대로라, "브라우저 UA인데 도구 기본 헤더 모양"을 보는 anti-artex 룰이 도구 요청 24건을 모두 잡았다. 공개 묶음에 없는 유형이다.
+- **관찰: UA를 무작위로 바꾸는 최신 변형도 요청 모양은 그대로다**<br>원 개발자라고 밝힌 계열의 v0.3.30은 ARTEX 도구의 UA를 표준 브라우저 UA 20개 중 하나로 무작위로 바꾼다. 실험실에서 이 계열을 돌리자 공개 묶음의 ARTEX 전용 룰은 하나도 울리지 않았다(Theori·MalwareMustDie 0건). 요청을 보내는 Go·Python 클라이언트의 헤더 모양은 그대로라, "브라우저 UA인데 도구 기본 헤더 모양"을 보는 anti-artex 룰이 도구 요청 24건을 모두 잡았다. 공개 묶음에 없는 유형이다. 가장 널리 퍼진 v0.7.0은 기본값에서 도구 UA를 그대로 써 공개 UA 룰에도 걸린다.
 
 - **관찰: 최신 영문 재배포판은 스캐너와 속도 조절을 갖췄다**<br>v0.7.0 이미지에는 nuclei·httpx·katana·ffuf·sqlmap 같은 스캐너와 헤드리스 브라우저가 들어 있고, 호스트별 속도 제한을 거는 기능이 생겼다. 가짜 모델 실측에서 속도 조절은 경보 수를 바꾸지 않았다. 스캐너는 각자의 기본 UA나 무작위 브라우저 UA를 쓴다.
 
@@ -112,7 +112,7 @@ CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/ant
 
 4. **피해 서버의 외부 조회**<br>FBI는 침투한 서버에서 위치 확인용 `api.db-ip.com` 조회와 `webhook.site`로의 명령 출력 전송을 지표로 들었다. 서버에서 이 두 도메인으로 가는 DNS 질의와 연결을 찾는다.
 
-5. **공개 탐지 자료 함께 쓰기**<br>MalwareMustDie·Theori 룰 묶음과 anti-artex 룰을 탐지 모드로 함께 넣는다. IOC는 권고 조치 열을 보고 쓴다(정상 서비스·CDN 뒤 주소는 막지 않는다). ARTEX 전용 룰이 울리지 않아도 공격이 없다는 뜻은 아니다. 모델이 ARTEX 도구 대신 curl만 쓰면 일반 웹 공격 탐지의 몫이다.
+5. **공개 탐지 자료 함께 쓰기**<br>MalwareMustDie·Theori 룰 묶음과 anti-artex 룰을 탐지 모드로 함께 넣는다. IOC는 권고 조치 열을 보고 쓴다(정상 서비스·CDN 뒤 주소는 막지 않는다). ARTEX 전용 룰이 울리지 않아도 공격이 없다는 뜻은 아니다. 모델이 ARTEX 도구 대신 curl만 쓰면 일반 웹 공격 탐지의 몫이다. MalwareMustDie 룰 4260110은 Suricata 7.0.17에서 로드되지 않아 설정 시험(`suricata -T`)이 실패한다.
 
 6. **UA에 기대지 않기**<br>최신 변형은 도구 UA를 브라우저 값으로 바꾼다. TLS를 푸는 지점(WAF·리버스 프록시)에서 요청 헤더 모양을 보는 룰을 함께 쓰고, sqlmap·ffuf 같은 스캐너 기본 UA와 `HeadlessChrome` UA는 일반 웹 공격 탐지로 본다.
 
@@ -125,6 +125,7 @@ CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/ant
 | 11월 21일 15시 | 첫 게시 |
 | 11월 22일 06시 | anti-artex 저장소 공개 내용 반영(탐지 룰·IOC·실험실 실측), 출처 3곳 추가 |
 | 11월 22일 20시 | 최신 변형 두 계열(v0.7.0·v0.3.30) 실험실 실측 결과와 anti-artex 룰 v0.4.0 반영 |
+| 11월 22일 22시 | 탐지 자료 설명을 anti-artex 저장소 기준으로 정리(버전·시험 수치 대신 저장소 참조, 공개 묶음 비교 기준, MalwareMustDie 4260110 로드 실패) |
 
 ## 출처
 

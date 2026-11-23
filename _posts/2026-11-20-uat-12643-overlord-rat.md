@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UAT-12643 — 북한 연계 의심 그룹, Solana 블록체인에 C2 주소를 숨기는 Overlord RAT와 정보 탈취"
+title: "UAT-12643 — 북한 연계 의심 그룹, Solana 블록체인에 C2를 숨기는 Overlord RAT와 정보 탈취"
 date: 2026-11-20
 tags: [uat-12643, overlord-rat, infostealer, north-korea, blockchain-c2, lolbin]
 description: "Cisco Talos가 공개한 UAT-12643은 Overlord RAT, Good Game 스틸러, 암호화폐 클립보드 탈취기를 쓴다. RAT는 C2 주소를 Solana 블록체인 거래 메모에 숨긴다. 공개 자료와 점검 항목을 정리했다."
@@ -83,7 +83,7 @@ Cisco Talos는 11월 18일 금전 목적의 위협 그룹 UAT-12643을 공개했
 
 - **관찰**<br>Talos가 밝힌 Snort 룰 번호는 무료 Snort Community 룰 묶음에는 없다. 구독 룰셋이나 Cisco 장비를 쓰지 않는 조직은 직접 탐지 조건을 만들어야 한다.
 
-- **추론**<br>C2 주소를 블록체인에 두면 IP·도메인 차단이 오래 버티지 못한다. 대신 업무 PC가 Solana RPC 노드에 JSON-RPC를 보내는 것 자체가 드물기 때문에, 그 통신을 보는 편이 더 오래 쓰는 탐지 조건이 된다. Defender 명령줄 도구·certutil·mshta·msbuild를 이용한 다운로드도 업무 PC에서는 드물다.
+- **추론**<br>C2 주소를 블록체인에 두면 IP·도메인 차단이 오래 버티지 못한다. 대신 업무 PC가 Solana RPC 노드에 JSON-RPC를 보내는 것 자체가 드물어서 그 통신을 보는 편이 더 오래 쓰는 탐지 조건이 된다. Defender 명령줄 도구·certutil·mshta·msbuild를 이용한 다운로드도 업무 PC에서는 드물다.
 
 - **추론**<br>국내 피해 보고는 없고 표적 언어도 유럽 쪽이다. 다만 미끼가 재무 문서·메신저·VoIP 설정 파일이라 업종을 가리지 않는다. 사용하는 도구도 공개 스틸러와 이미 알려진 RAT라 다른 행위자가 같은 묶음을 쓸 수 있다.
 

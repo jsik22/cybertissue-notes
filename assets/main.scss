@@ -229,4 +229,6 @@ table td:not(:first-child) {
   .post-content table th:not(:first-child),
   .post-content table td:not(:first-child) { overflow-wrap: break-word; word-break: keep-all; }
   .post-content table td code { overflow-wrap: anywhere; word-break: break-all; }
+  // 표 밖 목록의 긴 해시·주소도 화면 밖으로 밀지 않게 끊는다
+  .post-content li code, .post-content p code { overflow-wrap: anywhere; word-break: break-all; }
 }

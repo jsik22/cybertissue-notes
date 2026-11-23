@@ -222,4 +222,11 @@ table td:not(:first-child) {
   .post-list .post-meta span { display: inline; margin-right: 8px; }
   .post-title { font-size: 21px; }
   .site-nav .page-link { margin-left: 14px; }
+  // 좁은 화면 표: 둘째 열부터의 '어디서든 끊기'가 가운데 열을 한 글자 폭으로 짜부라뜨린다(2026-11-24 사용자 제보).
+  // 단어 단위로 끊고, 칸 여백·글자를 줄이고, 그래도 넘치면 가로 스크롤. 해시 같은 코드는 그대로 아무 데서나 끊는다.
+  .post-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .post-content table th, .post-content table td { padding: 7px 8px; font-size: 14px; }
+  .post-content table th:not(:first-child),
+  .post-content table td:not(:first-child) { overflow-wrap: break-word; word-break: keep-all; }
+  .post-content table td code { overflow-wrap: anywhere; word-break: break-all; }
 }

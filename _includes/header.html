@@ -1,0 +1,11 @@
+{%- comment -%} minima header를 덮어쓴다(2026-11-23 디자인 B). 검은 바, 빨간 사각 표시 + 사이트 이름, 오른쪽 메뉴. {%- endcomment -%}
+<header class="site-header" role="banner">
+  <div class="wrapper bar">
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <nav class="site-nav">
+      <a class="page-link" href="{{ "/" | relative_url }}">노트</a>
+      <a class="page-link" href="{{ "/about/" | relative_url }}">소개</a>
+      <a class="page-link" href="{{ "/feed.xml" | relative_url }}">RSS</a>
+    </nav>
+  </div>
+</header>

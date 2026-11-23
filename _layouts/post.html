@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{%- comment -%}
+minima post를 덮어쓴다(2026-11-23 디자인 B). 글 머리: 분류 표시, 제목, 게시·갱신·출처 수, 요약 상자(description).
+본문의 "**관찰**·**추론**·**불확실**" 머리말은 아래 스크립트가 배지 모양 클래스를 붙인다(글 형식은 그대로).
+{%- endcomment -%}
+{%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <div class="post-kicker">분석 노트 · {{ page.date | date: date_format }}</div>
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">게시 {{ page.date | date: date_format }}</time>
+      {%- if page.updated %} · 갱신 {{ page.updated | date: "%m-%d %H:%M" }}{%- endif -%}
+      {%- if page.sources %} · 출처 {{ page.sources | size }}{%- endif -%}
+    </p>
+    {%- if page.description %}
+    <div class="post-summary"><b>요약</b> {{ page.description | escape }}</div>
+    {%- endif %}
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+<script>
+document.querySelectorAll('.post-content li > strong:first-child, .post-content p > strong:first-child').forEach(function (s) {
+  var k = {'관찰': 'obs', '추론': 'inf', '불확실': 'unc'}[s.textContent.trim()];
+  if (k) { s.classList.add('lab', k); }
+});
+</script>

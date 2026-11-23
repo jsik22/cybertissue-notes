@@ -234,4 +234,6 @@ table td:not(:first-child) {
   .post-content table td code { overflow-wrap: anywhere; word-break: break-all; }
   // 표 밖 목록의 긴 해시·주소도 화면 밖으로 밀지 않게 끊는다
   .post-content li code, .post-content p code { overflow-wrap: anywhere; word-break: break-all; }
+  // 코드 표시 없이 적은 긴 해시·주소도 넘칠 때만 끊는다(문단·목록은 넘칠 때만 적용되어 한글 줄바꿈은 그대로)
+  .post-content p, .post-content li, .post-content table td a { overflow-wrap: anywhere; }
 }

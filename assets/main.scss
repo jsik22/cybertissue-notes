@@ -2,10 +2,10 @@
 # minima 2.5.1 위에 CyberTissue 노트 디자인 B(2026-11-23, 흑백 + 빨강 하나, 보고서형)를 덮는다
 ---
 
-// 본문 폭 900px(960 - 여백 30×2)과 글자 15px는 그대로 둔다. 줄바꿈 실측 기준(노트 900px)이 이 폭이다.
+// 본문 폭 900px(960 - 여백 30×2), 글자 15px, 글꼴(minima 시스템 글꼴), 표 글자·칸 여백은 예전 그대로 둔다.
+// 줄바꿈 실측 기준(노트 900px)이 이 조건이다. Pretendard로 바꾸면 기존 글 17곳이 어긋나 되돌렸다(2026-11-23).
 $content-width: 960px;
 $base-font-size: 15px;
-$base-font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
 $base-line-height: 1.7;
 $text-color: #111111;
 $grey-color: #555555;
@@ -120,7 +120,7 @@ body { -webkit-font-smoothing: antialiased; }
 .post-header { margin-bottom: 28px; }
 .post-kicker { font: 12px $mono; color: $accent; letter-spacing: 1px; }
 .post-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.5px;
@@ -190,7 +190,7 @@ pre { border-radius: 0; background: #f4f4f4; border: 1px solid $grey-color-light
 // ── 표 ──
 table {
   border: 1px solid #cccccc;
-  th, td { border: 1px solid #cccccc; padding: 8px 10px; font-size: 14px; }
+  th, td { border: 1px solid #cccccc; }
   th { background: $ink; color: #ffffff; font-weight: 600; border-color: $ink; }
   tr:nth-child(even) { background: none; }
 }
@@ -222,6 +222,6 @@ table td:not(:first-child) {
   .hero { flex-direction: column-reverse; align-items: flex-end; }
   .post-list > li { grid-template-columns: 1fr; }
   .post-list .post-meta span { display: inline; margin-right: 8px; }
-  .post-title { font-size: 22px; }
+  .post-title { font-size: 21px; }
   .site-nav .page-link { margin-left: 14px; }
 }

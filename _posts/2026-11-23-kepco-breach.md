@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "한전 개인정보 152만 명 유출 — 공식 발표와 다크웹 판매글 2건"
+title: "한전ON·전자조달시스템 침해 — 공식 발표와 다크웹 판매글 2건 비교"
 date: 2026-11-23
 tags: [kepco, kepco-on, kepco-srm, data-breach, darkforums, data-sale]
 description: "한전이 한전ON·SRM 침해로 152만 명분 유출을 공식 확인했다. DarkForums에는 조달·협력사 데이터와 전기요금 고객 데이터 판매글이 올라왔고, 공식 유출 데이터와 같은지는 확인되지 않았다."
@@ -13,7 +13,7 @@ sources:
   - {name: "이코노미사이언스, 한국전력, 한전ON·전자조달시스템 해킹…외부 침입 경로·접근권한 관리 도마 (2026-11-23)", url: "https://www.e-science.co.kr/news/articleView.html?idxno=140420"}
   - {name: "IDTechWire, KEPCO leak allegations include facial data for 408 employees (2026-10-19)", url: "https://idtechwire.com/kepco-leak-allegations-include-facial-data-for-408-employees/"}
 excerpt: "한전이 한전ON·SRM 침해로 152만 명분 유출을 공식 확인했다. DarkForums에는 조달·협력사 데이터와 전기요금 고객 데이터 판매글이 올라왔고, 공식 유출 데이터와 같은지는 확인되지 않았다."
-updated: 2026-11-23 16:35:02 +0900
+updated: 2026-11-23 16:54:30 +0900
 ---
 
 **목차**

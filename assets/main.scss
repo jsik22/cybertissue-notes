@@ -205,6 +205,17 @@ table td:not(:first-child) {
   overflow-wrap: anywhere;
 }
 
+// ── 연재 글 목록(2026-11-24, post.html의 series-nav) ──
+.series-nav {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 2px solid $ink;
+  h2 { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  ol { margin: 0; list-style: none; }
+  li { margin: 4px 0; }
+  a { color: $ink; text-decoration: underline; text-underline-offset: 3px; &:hover { color: $accent; } }
+}
+
 // ── 바닥글 ──
 .site-footer {
   border-top: 2px solid $ink;

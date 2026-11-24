@@ -9,7 +9,11 @@ minima post를 덮어쓴다(2026-11-23 디자인 B). 글 머리: 분류 표시, 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
+    {%- if page.series %}
+    <div class="post-kicker">연재 · {{ page.series | escape }} {{ page.part }}편</div>
+    {%- else %}
     <div class="post-kicker">분석 노트 · {{ page.date | date: date_format }}</div>
+    {%- endif %}
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">게시 {{ page.date | date: date_format }}</time>
@@ -25,6 +29,18 @@ minima post를 덮어쓴다(2026-11-23 디자인 B). 글 머리: 분류 표시, 
     {{ content }}
   </div>
 
+  {%- if page.series %}
+  {%- assign parts = site.posts | where: "series", page.series | sort: "part" %}
+  <nav class="series-nav" aria-label="이 연재의 다른 글">
+    <h2>이 연재의 다른 글</h2>
+    <ol>
+      {%- for p in parts %}
+      {%- if p.url == page.url %}<li><b>{{ p.part }}편 · {{ p.title | escape }}</b></li>
+      {%- else %}<li><a href="{{ p.url | relative_url }}">{{ p.part }}편 · {{ p.title | escape }}</a></li>{%- endif %}
+      {%- endfor %}
+    </ol>
+  </nav>
+  {%- endif %}
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 <script>

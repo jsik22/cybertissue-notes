@@ -8,6 +8,8 @@ sources:
   - {name: "Kaspersky — 35% of infostealer infections begin with users running files directly from temporary folders", url: "https://kaspersky.com/about/press-releases/kaspersky-35-of-infostealer-infections-begin-with-users-running-files-directly-from-temporary-folders"}
   - {name: "AhnLab ASEC — December 2025 Infostealer Trend Report", url: "https://asec.ahnlab.com/en/92142/"}
   - {name: "AhnLab ASEC — 2026년 5월 인포스틸러 동향 보고서", url: "https://asec.ahnlab.com/ko/94171/"}
+  - {name: "Flare — Analysis of 50,000 Infostealer Infections", url: "https://flare.io/learn/resources/cybercrime-favorite-target-gamers"}
+  - {name: "Flare(Security Boulevard 게재) — The Two Economies of Infostealer Campaigns", url: "https://securityboulevard.com/2026/11/many-small-cracks-a-few-big-cheats-the-two-economies-of-infostealer-campaigns/"}
   - {name: "AhnLab — Fake Claude Download Sites Spreading Malware", url: "https://www.ahnlab.com/en/contents/content-center/36141"}
   - {name: "AhnLab ASEC — 카카오톡 PC버전 사칭 사이트 유포", url: "https://asec.ahnlab.com/ko/92971/"}
   - {name: "AhnLab — The Hidden Threat Behind Fake CAPTCHAs and Installation Guides", url: "https://www.ahnlab.com/en/contents/content-center/36184"}
@@ -19,7 +21,7 @@ kind: series
 series: "인포스틸러 생태계"
 part: 2
 excerpt: "인포스틸러는 대부분 사용자가 직접 실행해서 들어온다. 공짜 프로그램, 검색 상단의 가짜 다운로드 사이트, 명령어를 붙여넣게 하는 화면, 게임 모드와 런처, 기관을 사칭한 메일이 국내에서 확인된 주요 경로다."
-updated: 2026-11-25 18:23:10 +0900
+updated: 2026-11-25 19:34:00 +0900
 ---
 
 ![위에서 공격자가 낚싯대를 쥐고 있고, 빨간 낚싯줄 세 가닥 끝의 바늘이 세 미끼에 꽂혀 있다. 깨진 자물쇠와 열쇠(크랙·키젠), '무료 압축 프로그램' 검색 결과(맨 위 광고 표시), 금화·검·조준선이 붙은 PC 게임 화면. 줄을 타고 열쇠·쿠키·카드·지갑이 공격자 쪽으로 올라간다](https://jsik22.github.io/cybertissue-notes/assets/2026-11-25-infostealer-kr-2/1-hero.png)
@@ -30,9 +32,11 @@ updated: 2026-11-25 18:23:10 +0900
 
 공격자는 사용자가 의심 없이 누를 만한 곳에 파일을 둔다. 국내에서 확인된 경로를 다섯 가지로 나눠 본다.
 
-## 공짜 프로그램과 검색 결과
+## 불법 프로그램과 검색 결과
 
-가장 오래되고 꾸준한 경로는 크랙·키젠 같은 불법 프로그램이다. 안랩 ASEC은 매달 이 방식의 인포스틸러를 집계하는데, 2026년 1~10월 보고서에 한 달도 빠지지 않고 나온다. 5월에는 신종 Remus가 이 경로 유포의 36%를 차지했다.
+가장 오래되고 꾸준한 경로는 크랙·키젠 같은 불법 프로그램이고, 그 대표가 어도비 제품이다. 보안 업체 Flare가 2025년 6~8월 감염 기기 5만 3,896대의 로그를 분석해 보니, 17.65%는 파일 이름에 '크랙'을 내건 프로그램에서 감염이 시작됐다. 그래픽·영상 같은 창작 도구 쪽에서는 감염의 3분의 1(32.72%)이 크랙 버전이었고, 그중 어도비가 압도적으로 많았다. 같은 회사가 2026년 11월 공개한 분석에서도 감염이 많은 상위 10개 브랜드에 윈도 정품 인증 도구, 다운로드 관리 프로그램과 함께 어도비가 들었다.
+
+국내도 다르지 않다. 안랩 ASEC은 매달 이 방식의 인포스틸러를 집계하는데, 2026년 1~10월 보고서에 한 달도 빠지지 않고 나온다. 5월에는 신종 Remus가 이 경로 유포의 36%를 차지했고, 악성 파일이 흉내 낸 제작사 정보에 마이크로소프트 등과 함께 어도비가 올랐다.
 
 공격자는 자기 블로그가 검색에서 막히자 남의 사이트를 빌렸다. 유명 포럼, 기업 홈페이지의 질문 게시판, 관리가 안 된 블로그에 내려받기 글을 심는다. ASEC은 국내 지역 신문사 홈페이지에 올라온 유포 글을 예시로 실었다. 파일은 대용량 파일 공유 서비스나 클라우드 저장소에 둬서 겉보기에는 평범한 내려받기 링크로 보인다.
 
@@ -71,7 +75,7 @@ updated: 2026-11-25 18:23:10 +0900
 
 | 경로 | 미끼 | 국내 사례 |
 |---|---|---|
-| 불법 프로그램 | 크랙·키젠·무료 정품 인증 | 지역 신문사 홈페이지의 유포 글 |
+| 불법 프로그램 | 어도비 등 크랙·키젠·정품 인증 우회 | 지역 신문사 홈페이지의 유포 글 |
 | 가짜 다운로드 사이트 | 검색 상단·광고의 공식 사이트 흉내 | 가짜 Claude 사이트, 메신저 사칭 사이트 |
 | 명령어 붙여넣기 | 가짜 인증 화면·오류 창 | 침해된 온라인 매거진 사이트 |
 | 게임 | 모드·치트·공식 런처 침해 | 국내 개발사 게임 PC 런처 |
@@ -94,6 +98,8 @@ updated: 2026-11-25 18:23:10 +0900
 - Kaspersky, 인포스틸러 로그 분석 보도자료(2026-06): https://kaspersky.com/about/press-releases/kaspersky-35-of-infostealer-infections-begin-with-users-running-files-directly-from-temporary-folders
 - AhnLab ASEC, 2025년 12월 인포스틸러 동향: https://asec.ahnlab.com/en/92142/
 - AhnLab ASEC, 2026년 5월 인포스틸러 동향: https://asec.ahnlab.com/ko/94171/
+- Flare, 인포스틸러 감염 5만 건 분석(2025-11): https://flare.io/learn/resources/cybercrime-favorite-target-gamers
+- Flare, 인포스틸러 캠페인의 두 경제(2026-11): https://securityboulevard.com/2026/11/many-small-cracks-a-few-big-cheats-the-two-economies-of-infostealer-campaigns/
 - AhnLab, 가짜 Claude 다운로드 사이트: https://www.ahnlab.com/en/contents/content-center/36141
 - AhnLab ASEC, 카카오톡 PC버전 사칭 사이트: https://asec.ahnlab.com/ko/92971/
 - AhnLab, 가짜 CAPTCHA와 ClickFix: https://www.ahnlab.com/en/contents/content-center/36184

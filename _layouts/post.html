@@ -10,7 +10,7 @@ minima post를 덮어쓴다(2026-11-23 디자인 B). 글 머리: 분류 표시, 
 
   <header class="post-header">
     {%- if page.series %}
-    <div class="post-kicker">연재 · {{ page.series | escape }} {{ page.part }}편</div>
+    <div class="post-kicker">연재 · {{ page.date | date: date_format }}</div>
     {%- else %}
     <div class="post-kicker">분석 노트 · {{ page.date | date: date_format }}</div>
     {%- endif %}

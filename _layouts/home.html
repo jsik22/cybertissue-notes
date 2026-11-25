@@ -29,7 +29,7 @@ minima 홈을 덮어쓴다(2026-11-23 디자인 B). 위: 설명(왼쪽)과 로�
           {%- endif -%}
         </div>
         <div class="post-item">
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          <a class="post-link" href="{{ post.url | relative_url }}">{% if post.series %}{{ post.series | escape }} {{ post.part }}편 — {% endif %}{{ post.title | escape }}</a>
           {%- if site.show_excerpts and post.excerpt %}
           <p class="post-excerpt">{{ post.excerpt | strip_html | strip }}</p>
           {%- endif %}

@@ -3,14 +3,14 @@ layout: post
 title: "FrostyGoop — Modbus로 난방을 끊은 ICS 악성코드, 공개 정보로 다시 보기"
 date: 2026-11-15
 tags: [ics, ot, malware, modbus, frostygoop]
-description: "2024년 우크라이나 지역난방 중단에 쓰인 FrostyGoop(BUSTLEBERM)을 공개 보고서와 CyberTissue 조회 결과로 정리하고, OT 운영 조직이 점검할 항목을 뽑았다."
+description: "2024년 우크라이나 지역난방 중단에 쓰인 FrostyGoop(BUSTLEBERM)을 공개 보고서와 CTiSSUE 조회 결과로 정리하고, OT 운영 조직이 점검할 항목을 뽑았다."
 sources:
   - {name: "Dragos, FrostyGoop ICS Malware Intel Brief (2024-07)", url: "https://hub.dragos.com/hubfs/Reports/Dragos-FrostyGoop-ICS-Malware-Intel-Brief-0724_.pdf"}
   - {name: "Unit 42, FrostyGoop's Zoom-In (2024-11)", url: "https://unit42.paloaltonetworks.com/frostygoop-malware-analysis/"}
   - {name: "Forescout Vedere Labs, Insights Others Missed (2024-08)", url: "https://www.forescout.com/blog/ics-malware-frostygoopbustleberm-insights-others-missed/"}
   - {name: "MITRE ATT&CK S1165 FrostyGoop", url: "https://attack.mitre.org/software/S1165/"}
   - {name: "MITRE ATT&CK C0041 FrostyGoop Incident", url: "https://attack.mitre.org/campaigns/C0041/"}
-excerpt: "2024년 우크라이나 지역난방 중단에 쓰인 FrostyGoop(BUSTLEBERM)을 공개 보고서와 CyberTissue 조회 결과로 정리하고, OT 운영 조직이 점검할 항목을 뽑았다."
+excerpt: "2024년 우크라이나 지역난방 중단에 쓰인 FrostyGoop(BUSTLEBERM)을 공개 보고서와 CTiSSUE 조회 결과로 정리하고, OT 운영 조직이 점검할 항목을 뽑았다."
 updated: 2026-11-19 10:11:08 +0900
 ---
 
@@ -45,7 +45,7 @@ updated: 2026-11-19 10:11:08 +0900
 | Forescout(2024-08) | 펌웨어 다운그레이드와 라우터 악용은 악성코드 자체 기능이 아니므로, 공개 샘플과 사건의 연결은 생각보다 약할 수 있다고 봤다. 실제 피해 규모가 보도보다 작았을 가능성도 언급했다. |
 | MITRE ATT&CK | 소프트웨어 S1165, 캠페인 C0041로 정리돼 있다. Dragos는 공격 주체를 TAT2024-24로 부르며 특정 국가 조직에 귀속하지 않았다. |
 
-## CyberTissue로 본 것
+## CTiSSUE로 본 것
 
 - **관찰**<br>공개 보고서의 SHA-256 8건 가운데 3건이 MalwareBazaar에 FrostyGoop 태그로 등재돼 있다(2024-07-23~24). 8건 모두 OTX 펄스 3건에 들어 있고, ThreatFox에는 없다.
 
@@ -96,4 +96,4 @@ updated: 2026-11-19 10:11:08 +0900
 - MITRE ATT&CK S1165, C0041
 
 ---
-이 글은 CyberTissue가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 CTiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue

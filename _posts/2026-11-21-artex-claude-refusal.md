@@ -33,13 +33,13 @@ updated: 2026-11-22 22:01:38 +0900
 | 쓰이는 모델 | 중국 모델 위주, DeepSeek Flash 계열이 가장 많음(FBI·Check Point) |
 | Claude 모델 | 거절 사례가 공개 보고 2건과 우리 실험실에서 모두 확인됨 |
 | 국내 | 10월 국내 금융권 침입에 쓰였다는 CrowdStrike 보고, 같은 인프라를 넓혀 본 Hunt.io 보고 |
-| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CyberTissue [anti-artex](https://github.com/jsik22/anti-artex)(탐지 룰, IOC 목록) |
+| 공개 탐지 자료 | MalwareMustDie·Theori 룰 묶음, CTiSSUE [anti-artex](https://github.com/jsik22/anti-artex)(탐지 룰, IOC 목록) |
 
 ## 무슨 일인가
 
 ARTEX는 목표만 주면 LLM 에이전트 여럿이 정찰부터 침투·자료 수집까지 알아서 이어 가는 침투 테스트 도구다. 모델을 내장하지 않고 외부 LLM API에 붙인다. FBI는 11월 13일 FLASH 경보에서 8월부터 여러 행위자가 이 도구를 무기화했고, 일부 침입은 표적 선정부터 특권 획득까지 3시간이 안 걸렸다고 밝혔다. 같은 경보는 공격자 쪽 ARTEX에서 DeepSeek Flash 계열이 가장 많이 쓰이며, 이유로 낮은 비용과 '침투 테스트'로 포장했을 때 안전장치가 보이지 않는 점을 들었다.
 
-CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분리된 실험실에 ARTEX를 소스에서 빌드해 올렸다. 표적은 연습용 취약 앱(OWASP Juice Shop) 하나였고, 모델은 Anthropic Claude Sonnet 5.5를 붙였다. 결과는 표적으로 간 요청 0건이었다. 모델이 ARTEX의 계획 요청을 거절했다.
+CTiSSUE는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분리된 실험실에 ARTEX를 소스에서 빌드해 올렸다. 표적은 연습용 취약 앱(OWASP Juice Shop) 하나였고, 모델은 Anthropic Claude Sonnet 5.5를 붙였다. 결과는 표적으로 간 요청 0건이었다. 모델이 ARTEX의 계획 요청을 거절했다.
 
 ## 공개된 근거
 
@@ -62,7 +62,7 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 
 - **FBI FLASH(11월 13일)**<br>ARTEX가 Claude·GPT 같은 상용 모델과 DeepSeek·GLM·Grok·Kimi에 모두 붙는다고 적었다. 서버에서 `api.anthropic.com`, `api.deepseek.com`, `open.bigmodel.cn`, `api.x.ai`로 예상하지 못한 호출이 나가면 다른 의심 활동과 함께 조사하라고 권고했다.
 
-## CyberTissue로 본 것
+## CTiSSUE로 본 것
 
 실험실 구성(Claude 실험, 11월 21일): ARTEX v0.3.15(원본의 마지막 공개 버전)를 원본 소스에서 빌드했고, 표적은 같은 격리망의 Juice Shop 하나였다. 바깥으로는 Anthropic API 하나만 나갈 수 있게 막았다. 작업은 'Juice Shop의 웹 취약점을 찾아 검증하라' 하나였고, 표적 범위도 그 호스트 하나로 제한했다.
 
@@ -72,7 +72,7 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 
 - **관찰: ARTEX는 거절을 구분하지 않는다**<br>ARTEX는 본문도 도구 호출도 없는 응답을 '생각만 하고 끝난 빈 회차'로 보고, 계속하라는 재촉 지시를 붙여 다시 보낸다. 거절을 따로 처리하는 코드는 없다. 실제로 워커들은 재촉 두 번 뒤 결과 0건으로 '완료' 처리됐고, 계획 단계는 새 작업을 계속 만들어 냈다. 거절된 채로 토큰만 쓰는 구조다.
 
-- **추론: 우리 관찰은 공개 보고와 같은 방향이다**<br>Check Point(실제 공격자 설정), GitGuardian(실험실, Sonnet·Opus), CyberTissue(실험실, Sonnet 5.5) 세 곳에서 Claude 모델은 ARTEX의 침투 작업을 진행하지 않았다. 다만 우리는 워커 단계의 응답 원문을 기록하기 전에 작업을 멈췄고, 같은 결과를 반복 확인하지는 않았다. 계획 단계 거절 기록과 표적 요청 0건이 근거의 전부다.
+- **추론: 우리 관찰은 공개 보고와 같은 방향이다**<br>Check Point(실제 공격자 설정), GitGuardian(실험실, Sonnet·Opus), CTiSSUE(실험실, Sonnet 5.5) 세 곳에서 Claude 모델은 ARTEX의 침투 작업을 진행하지 않았다. 다만 우리는 워커 단계의 응답 원문을 기록하기 전에 작업을 멈췄고, 같은 결과를 반복 확인하지는 않았다. 계획 단계 거절 기록과 표적 요청 0건이 근거의 전부다.
 
 - **추론: 거절은 방어가 아니다**<br>ARTEX는 모델을 설정 한 줄로 바꾼다. Check Point가 본 운영자처럼 거절당하면 DeepSeek 같은 모델로 옮기면 된다. 방어하는 쪽은 특정 모델의 안전장치에 기대지 말고, ARTEX가 어떤 모델로 돌든 남기는 흔적을 봐야 한다.
 
@@ -80,7 +80,7 @@ CyberTissue는 이 도구의 탐지 지문을 만들기 위해 인터넷과 분�
 
 ## 탐지 자료: anti-artex
 
-CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/anti-artex) 저장소로 공개했다. 여러 보고와 저장소에 흩어진 IOC와 탐지 룰을 직접 확인하고 실측해 한곳에 쌓는 것이 목표다.
+CTiSSUE는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/anti-artex) 저장소로 공개했다. 여러 보고와 저장소에 흩어진 IOC와 탐지 룰을 직접 확인하고 실측해 한곳에 쌓는 것이 목표다.
 
 | 항목 | 내용 |
 |---|---|
@@ -139,4 +139,4 @@ CyberTissue는 ARTEX 탐지 자료를 [anti-artex](https://github.com/jsik22/ant
 - Theori, aipt-detections (2026-10-12)
 
 ---
-이 글은 CyberTissue가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 CTiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue

@@ -1,7 +1,7 @@
 # cybertissue-notes(GitHub Pages) 사이트 설정. 원본은 cybertissue 저장소 pub/site/에 있고 게시 실행이 처음 한 번 복사한다.
-title: CTiSSUE Notes
+title: C.TiSSUE Notes
 description: "공개 정보만으로 조사한 사이버 위협 이슈 분석 노트"
-author: CTiSSUE
+author: C.TiSSUE
 url: https://jsik22.github.io
 baseurl: /cybertissue-notes
 lang: ko

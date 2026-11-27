@@ -47,7 +47,7 @@ Warden Stealer는 Rust로 만든 윈도 인포스틸러로, 구독형 MaaS로 �
 | SOC Prime(10-12) | explorer.exe 주입과 certutil 다운로드를 탐지 규칙으로 제시했다. |
 | 출처마다 다른 점 | 첫 관측을 Gen은 5월 초(빌드), SpyCloud는 8월 3일로 적었다. |
 
-## CTiSSUE로 본 것
+## C.TiSSUE로 본 것
 
 - **관찰**<br>Gen이 블로그에 공개한 해시 21건 중 MalwareBazaar에 등록된 것은 2건이었다. 그중 한 건은 MalwareBazaar가 WARDENStealer로, ThreatFox가 Raven Stealer로 분류했다. Gen의 C2 도메인 50개 중 ThreatFox의 WARDENStealer 목록(IOC 598건)에 있는 것은 21개였다.
 
@@ -96,4 +96,4 @@ Warden Stealer는 Rust로 만든 윈도 인포스틸러로, 구독형 MaaS로 �
 - Gen Threat Labs IOC 저장소 (WardenStealer)
 
 ---
-이 글은 CTiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/ctissue
+이 글은 C.TiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/ctissue

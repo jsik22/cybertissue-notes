@@ -119,4 +119,4 @@ Cisco Talos는 11월 18일 금전 목적의 위협 그룹 UAT-12643을 공개했
 - AlienVault OTX, UAT-12643 펄스 (2026-11-20)
 
 ---
-이 글은 CTiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 CTiSSUE가 공개 정보만으로 자동 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/ctissue

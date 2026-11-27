@@ -134,4 +134,4 @@ updated: 2026-11-27 14:09:09 +0900
 - Daily Security Review, Group-IB Exposes Five Brokers Fabricating Breach Alerts From Old Leaks (2026-05-22)
 
 ---
-이 글은 CTiSSUE가 공개 정보만으로 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 CTiSSUE가 공개 정보만으로 조사한 결과를 사람이 검토해 올린 것입니다. 추적기·게시글의 내용은 주장이며 확정된 사실이 아닙니다. 조사 방법과 도구: https://github.com/jsik22/ctissue

@@ -111,4 +111,4 @@ updated: 2026-11-25 20:10:49 +0900
 - AhnLab ASEC, 피싱 메일로 퍼지는 Vidar: https://asec.ahnlab.com/ko/94363/
 
 ---
-이 글은 공개 자료와 CTiSSUE 조사를 사람이 정리한 연재입니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 공개 자료와 CTiSSUE 조사를 사람이 정리한 연재입니다. 조사 방법과 도구: https://github.com/jsik22/ctissue

@@ -84,4 +84,4 @@ PC 한 대가 감염되면 그 사람이 쓰던 사이트의 계정이 한꺼번
 - 국내 사이트 표본 조회: Hudson Rock 무료 조회(2026-11-24), 순위 Tranco(2026-11-23)
 
 ---
-이 글은 공개 자료와 CTiSSUE 조사를 사람이 정리한 연재입니다. 조사 방법과 도구: https://github.com/jsik22/cybertissue
+이 글은 공개 자료와 CTiSSUE 조사를 사람이 정리한 연재입니다. 조사 방법과 도구: https://github.com/jsik22/ctissue

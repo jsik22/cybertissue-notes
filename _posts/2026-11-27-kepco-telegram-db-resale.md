@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "한전 '디비' 텔레그램 판매 후속 — 재포장 가능성과 DB 유통 시장"
+title: "한전 'DB' 텔레그램 판매 후속 — 재포장 가능성과 DB 유통 시장"
 date: 2026-11-27
 tags: [kepco, data-breach, telegram, data-broker, fake-leak]
 description: "한전 유출 고객정보를 건당 500원에 판다는 텔레그램 판매자가 보도됐다. 방송 화면과 불법 DB 유통 시장의 관행을 대조하면, 기존 DB를 한전 이름으로 다시 포장했을 가능성이 높다."
@@ -16,7 +16,7 @@ sources:
   - {name: "Group-IB, What Is a Combolist? How It Works, Risks, and Prevention (2025-07-08)", url: "https://www.group-ib.com/blog/combolists-ulp-darkweb/"}
   - {name: "Daily Security Review, Group-IB Exposes Five Brokers Fabricating Breach Alerts From Old Leaks (2026-05-22)", url: "https://dailysecurityreview.com/cyber-security/group-ib-exposes-five-brokers-fabricating-breach-alerts-from-old-leaks/"}
 excerpt: "한전 유출 고객정보를 건당 500원에 판다는 텔레그램 판매자가 보도됐다. 방송 화면과 불법 DB 유통 시장의 관행을 대조하면, 기존 DB를 한전 이름으로 다시 포장했을 가능성이 높다."
-updated: 2026-11-27 10:34:31 +0900
+updated: 2026-11-27 14:07:35 +0900
 ---
 
 **목차**

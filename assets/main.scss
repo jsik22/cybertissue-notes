@@ -1,5 +1,5 @@
 ---
-# minima 2.5.1 위에 CTiSSUE 노트 디자인 B(2026-11-23, 흑백 + 빨강 하나, 보고서형)를 덮는다
+# minima 2.5.1 위에 CTiSSUE 노트 디자인 B(2026-11-23, 흑백 + 강조색 하나, 보고서형). 2026-11-28 로고 교체에 맞춰 강조색 빨강 → 주황를 덮는다
 ---
 
 // 본문 폭 900px(960 - 여백 30×2), 글자 15px, 글꼴(minima 시스템 글꼴), 표 글자·칸 여백은 예전 그대로 둔다.
@@ -15,7 +15,7 @@ $brand-color: #111111;
 @import "minima";
 
 $ink: #111111;
-$accent: #d92d20;
+$accent: #c75000; // 로고 주황(#fc8000)을 흰 바탕 글자 대비 4.5:1 이상이 되게 어둡게 한 색
 $mono: "SF Mono", Menlo, Consolas, monospace;
 
 body { -webkit-font-smoothing: antialiased; }
@@ -47,9 +47,9 @@ body { -webkit-font-smoothing: antialiased; }
 }
 .site-title::before {
   content: "";
-  width: 8px;
-  height: 8px;
-  background: $accent;
+  width: 28px;
+  height: 28px;
+  background: url("globe.png") center / contain no-repeat;
   margin-right: 10px;
 }
 .site-nav {
@@ -79,7 +79,7 @@ body { -webkit-font-smoothing: antialiased; }
   border-bottom: 2px solid $ink;
 }
 .hero .lede { margin: 0; color: #555555; font-size: 13px; letter-spacing: 0.5px; }
-.hero .logo { width: 380px; max-width: 60%; height: auto; display: block; }
+.hero .logo { width: 460px; max-width: 60%; height: auto; display: block; }
 
 .post-list { margin: 0; list-style: none; }
 .post-list > li {

@@ -25,7 +25,7 @@ updated: 2026-11-19 10:11:25 +0900
 
 | 항목 | 상태 (11월 18일 기준) |
 |---|---|
-| 정체 | Rust로 만든 윈도 인포스틸러, 구독형 MaaS(v1.9 이후 월 450~1,500달러) |
+| 정체 | Rust로 만든 윈도우 인포스틸러, 구독형 MaaS(v1.9 이후 월 450~1,500달러) |
 | 노리는 데이터 | v1.9(9월 29일 공지)부터 Claude Code, Codex CLI, Cursor, Grok 등 AI 코딩 에이전트 자격 증명 파일 표준 수집 |
 | 규모 | SpyCloud: 8월 3일 이후 이 계열 고유 감염 13만 건 넘게 재수집 |
 | 유포 경로 | 크랙 소프트웨어, 게임 치트, 악성 광고, ClickFix |
@@ -34,7 +34,7 @@ updated: 2026-11-19 10:11:25 +0900
 
 ## 무슨 일인가
 
-Warden Stealer는 Rust로 만든 윈도 인포스틸러로, 구독형 MaaS로 팔린다. Gen Threat Labs는 자사가 CallbackBeaver라고 부르던 악성코드가 이것이라고 밝혔다. 2026년 9월 29일 공지된 v1.9부터 Claude Code, Codex CLI, Cursor, Grok 같은 AI 코딩 에이전트의 자격 증명 파일을 표준으로 수집한다. SpyCloud는 8월 3일 이후 이 계열의 고유 감염을 13만 건 넘게 재수집했다고 밝혔다. 유포 경로는 크랙 소프트웨어, 게임 치트, 악성 광고, ClickFix(웹 페이지가 시키는 명령 붙여넣기)다.
+Warden Stealer는 Rust로 만든 윈도우 인포스틸러로, 구독형 MaaS로 팔린다. Gen Threat Labs는 자사가 CallbackBeaver라고 부르던 악성코드가 이것이라고 밝혔다. 2026년 9월 29일 공지된 v1.9부터 Claude Code, Codex CLI, Cursor, Grok 같은 AI 코딩 에이전트의 자격 증명 파일을 표준으로 수집한다. SpyCloud는 8월 3일 이후 이 계열의 고유 감염을 13만 건 넘게 재수집했다고 밝혔다. 유포 경로는 크랙 소프트웨어, 게임 치트, 악성 광고, ClickFix(웹 페이지가 시키는 명령 붙여넣기)다.
 
 ## 공개된 근거
 
